@@ -1,0 +1,6 @@
+POST http://localhost:8080/radni-nalozi/arhiva
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczNzIxMTA4OX0.zgVbGAzNx6Zz0k1c2LIgEqv_CqdIA2e1lW_iiU6fdLs
+
+{
+  "nalog_id": 23
+}

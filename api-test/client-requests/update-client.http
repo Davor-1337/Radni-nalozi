@@ -1,0 +1,10 @@
+PUT http://localhost:8080/klijenti/3
+content-type: application/json
+
+{ 
+  "Naziv": "hhh",    
+	"KontaktOsoba": "Ivana Markovic",
+	"Email": "markssso@gmail.com",
+	"Tel":   "+38766554202",       
+	"Adresa": "Kneza Mihajla 12a"    
+}

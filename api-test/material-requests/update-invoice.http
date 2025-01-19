@@ -1,0 +1,8 @@
+PUT http://localhost:8080/fakture/3
+content-type: application/json
+
+{ 
+  "Nalog_ID": 5,    
+	"Iznos": 999.3,
+	"DatumFakture": "2024-05-04T00:00:00Z"   
+}

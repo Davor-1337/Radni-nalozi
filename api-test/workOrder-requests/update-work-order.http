@@ -1,0 +1,12 @@
+PUT http://localhost:8080/radni-nalozi/5
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VybmFtZSI6ImRhdm9yIiwiZXhwIjoxNzM0Mzc4MDI4fQ.Z-NmvxEvbU4YwieHYD-rJlsJIcgJY8fpokcygc6lWF4
+
+{ 
+  "Klijent_id": 3,    
+	"OpisProblema": "UPsssATe",
+	"Prioritet": "marko@gmail.com",
+	"DatumOtvaranja":  "2024-01-01T15:30:00Z",       
+	"Status": "zavrsen",
+	"Lokacija": "Kneza Mihajla 12a"
+}

@@ -1,0 +1,8 @@
+GET http://localhost:8080/radni-nalozi/filter
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczNjk4OTM4Mn0.VfMFjKi5X7PHB5rqEQsOwjM2kOwf0MU2iHMhaCtpfDk
+
+{   
+    "date_from": "2024-12-20",
+    "priority": "Visok",
+    "status": "Otvoren"
+}

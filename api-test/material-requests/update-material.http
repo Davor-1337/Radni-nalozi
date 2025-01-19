@@ -1,0 +1,8 @@
+PUT http://localhost:8080/materijali/1
+content-type: application/json
+
+{ 
+  "NazivMaterijala": "Bakar",    
+	"Cijena": 304.555,
+	"KolicinaUSkladistu": 124
+}

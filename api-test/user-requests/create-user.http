@@ -1,0 +1,10 @@
+POST http://localhost:8080/signup
+content-type: application/json
+
+{  
+	"User_ID": 204,   
+	"Username": "SwiftP",
+	"Email": "SwiftPeak@gmail.com",
+	"Password":  "SwiftP",       
+	"Role": "klijent"
+}

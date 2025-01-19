@@ -1,0 +1,2 @@
+GET http://localhost:8080/radni-nalozi/arhiva
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczNzExOTg4NX0.0P09tnqS_N-awpoCMs9bJDIVDhfpkr5QgC4Rf5h28z4

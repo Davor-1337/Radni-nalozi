@@ -1,0 +1,10 @@
+PUT http://localhost:8080/serviseri/2
+content-type: application/json
+
+{     
+	"Ime": "ISSSSSSSS",
+	"Prezime": "UPDATE",
+	"Specijalnost":  "specijalac",       
+	"Telefon": "zavrsen",
+	"User_ID": 2
+}

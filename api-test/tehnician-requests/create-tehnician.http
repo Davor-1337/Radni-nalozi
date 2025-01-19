@@ -1,0 +1,12 @@
+POST http://localhost:8080/serviseri
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczNTEzODI1OH0.AKy-bd7qQFKGguOeznHlUHIgsHvGnXtiVvzm5fUVzQA
+
+{  
+	"Serviser_ID": 104,   
+	"Ime": "Stefan",
+	"Prezime": "Filipovic",
+	"Specijalnost":  "Elektricar",       
+	"Telefon": "+38766820046",
+	"User_ID": 104
+}

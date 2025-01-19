@@ -1,0 +1,9 @@
+POST http://localhost:8080/materijali
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczNTEzOTI5OX0.FtAFs51bY-WTZIOZeogJNz74ovR2GUwuCwfsDuDBsa4
+
+{ 
+  "NazivMaterijala": "Bakarna zica (5kg)",    
+	"Cijena": 59.99,
+	"KolicinaUSkladistu": 25
+}

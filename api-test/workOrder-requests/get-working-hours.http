@@ -1,0 +1,2 @@
+GET http://localhost:8080/radni-nalozi/8/sati
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VybmFtZSI6ImRhdm9yIiwiZXhwIjoxNzM0Mzc4MDI4fQ.Z-NmvxEvbU4YwieHYD-rJlsJIcgJY8fpokcygc6lWF4

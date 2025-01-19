@@ -1,0 +1,3 @@
+GET http://localhost:8080/fakture/generisi/20
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczNjM2MTIxOH0.Fus-0gxkZsNbtMhJQO6Gt9UPpLI9hpgj5c36Mg6eTSc
+

@@ -1,0 +1,2 @@
+GET http://localhost:8080/radni-nalozi/16
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoic2VydmlzZXIiLCJVc2VyX0lEIjoxNCwiVXNlcm5hbWUiOiJtaWxhbiIsImV4cCI6MTczNDczNzA1OX0.PDMJ_qLsQXTuAWR9Q0ncUeBpAX8wRXk4YKDLH31KRT8

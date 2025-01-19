@@ -1,0 +1,7 @@
+PUT http://localhost:8080/radni-nalozi/status
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczNjc2NTUxMn0.Fmwnassrh5rnHzG4fvHAwbZeFZfqGIluA32WqbtJ0hc
+
+{
+  "work_order_id": 17,
+    "status": "Zavrsen"
+}

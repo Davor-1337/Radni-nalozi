@@ -1,0 +1,14 @@
+POST http://localhost:8080/klijenti
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczNTEzNzE0M30.Xp0rBY7L9H4vIxPQeBednjxhgm6wyng0Ey5psNVP_J0
+
+{ 
+	"Klijent_ID": 204,
+  "Naziv": "Swift Peak",    
+	"KontaktOsoba": "Milica Aksentijevic",
+	"Email": "MilicaSP@gmail.com",
+	"Tel":   "+38766205205",       
+	"Adresa": "Petar Kocic 44",
+	"User_ID": 204
+}
+

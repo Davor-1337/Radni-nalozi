@@ -1,0 +1,12 @@
+POST http://localhost:8080/radni-nalozi
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczNTU1ODc5OX0.136G3lmEbFeGeIN9vl7B1V7N_s-s1e_H2b3xk1U_lmg
+
+{ 
+  "Klijent_id": 200,    
+	"OpisProblema": "Ne radi ventilacija u kancelariji.",
+	"Prioritet": "Nizak",
+	"DatumOtvaranja":  "2024-12-20T09:54:00Z",       
+	"Status": "Otvoren",
+	"Lokacija": "Kneza Mihajla 12a"
+}
