@@ -24,4 +24,16 @@ Ja sam stavio da je admin zaduzen za kreiranje naloga serviserima i korisnicima,
 Sto se tice notifikacije o promjeni statusa radnog naloga, ja sam napravio automatsko slanje emaila klijentu kojem pripada radni nalog. Znaci izvuce iz baze email klijenta i bice mu poslan email da je status
 njegovog radnog naloga promijenjen. Mislim da je to to, ako se sjetim jos neceg pisacu na viber. 
 
+Podaci za logovanje usera sa role-om "Admin":
+"Username": "davor",
+"Password":  "davor" 
 
+Podaci za logovanje usera sa role-om "Serviser":
+"Username": "Milan212",
+	"Password":  "Milan212" 
+
+Podaci za logovanje usera sa role-om "Klijent":
+{     
+	"Username": "LuminaC",
+	"Password":  "LuminaC"      
+}
