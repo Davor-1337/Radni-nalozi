@@ -100,7 +100,7 @@ func AdminOrAssignedTehnicianMiddleware(context *gin.Context) {
             context.Abort()
             return
         }
-				//OVO JE DOBRO SAMO SE USER_ID TREBA POKLAPATI SA SERVISER_ID
+				
         if !isAssigned {
             context.JSON(http.StatusForbidden, gin.H{"message": "Access forbidden: you are not assigned to this work order."})
             context.Abort()
@@ -146,13 +146,13 @@ func AuthenticateAdminOrClient(context *gin.Context) {
     }
 
     
-    userIDFloat, ok := claims["User_ID"].(float64) // Preuzmi kao float64
+    userIDFloat, ok := claims["User_ID"].(float64) 
     if !ok {
         context.JSON(http.StatusForbidden, gin.H{"message": "Access forbidden: invalid user ID."})
         context.Abort()
         return
     }
-    userID := int64(userIDFloat) // Konvertuj u int64
+    userID := int64(userIDFloat) 
     fmt.Println("Klijent ID:", userID)
 
     context.Set("userID", userID)
@@ -182,14 +182,14 @@ func RoleBasedAccess(context *gin.Context)  {
             return
         }
 
-        userID, ok := claims["User_ID"].(float64) // Preuzima User_ID iz tokena
+        userID, ok := claims["User_ID"].(float64) 
         if !ok {
             context.JSON(http.StatusForbidden, gin.H{"message": "Access forbidden: invalid user ID."})
             context.Abort()
             return
         }
 
-        workOrderID, err := strconv.Atoi(context.Param("id")) // Preuzima ID radnog naloga iz URL-a
+        workOrderID, err := strconv.Atoi(context.Param("id")) 
         if err != nil {
             context.JSON(http.StatusBadRequest, gin.H{"message": "Invalid work order ID."})
             context.Abort()
@@ -199,11 +199,11 @@ func RoleBasedAccess(context *gin.Context)  {
         // Provjera na osnovu role
         switch role {
         case "admin":
-            // Admin ima pristup svemu, ne radi dodatne provjere
+            
             context.Next()
             return
         case "serviser":
-            // Provjerava da li radni nalog pripada serviseru
+            
             belongs, err := models.IsTehnicianAssignedToWorkOrder(int64(userID), int64(workOrderID))
             if err != nil || !belongs {
                 context.JSON(http.StatusForbidden, gin.H{"message": "Access forbidden: work order not assigned to you."})
@@ -211,7 +211,7 @@ func RoleBasedAccess(context *gin.Context)  {
                 return
             }
         case "klijent":
-            // Provjerava da li radni nalog pripada klijentu
+            
             belongs, err := models.IsWorkOrderOwnedByClient(int64(userID), int64(workOrderID))
             if err != nil || !belongs {
                 context.JSON(http.StatusForbidden, gin.H{"message": "Access forbidden: work order not associated with your account."})

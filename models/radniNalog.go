@@ -4,8 +4,6 @@ import (
 	"Diplomski/database"
 	"database/sql"
 	"log"
-
-	// "database/sql"
 	"time"
 )
 

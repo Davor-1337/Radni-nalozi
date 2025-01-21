@@ -5,7 +5,6 @@ import (
 	"Diplomski/utils"
 	"database/sql"
 	"errors"
-	// "log"
 )
 
 

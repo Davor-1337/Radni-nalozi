@@ -1,33 +1,42 @@
 package database
 
 import (
-    "database/sql"
-    "fmt"
-    _ "github.com/denisenkom/go-mssqldb"
+	"database/sql"
+	"fmt"
+	"os"
+
+	_ "github.com/denisenkom/go-mssqldb"
+	"github.com/joho/godotenv"
 )
 
 var DB *sql.DB
 
 func ConnectDB() error {
-    connString := "sqlserver://davor:davor@localhost:1433?database=RadniNaloziDB"
 
-    // Povezivanje sa bazom podataka
-    var err error
-    DB, err = sql.Open("sqlserver", connString) // Ovdje postavljamo globalnu varijablu
-    if err != nil {
-        return fmt.Errorf("greska pri otvaranju konekcije: %v", err)
-    }
+	err := godotenv.Load("databaseConn.env")
+	if err != nil {
+	fmt.Printf("Error loading .env file: %v\n", err)
+	return err}
+ 
 
-    // Testiranje konekcije
-    err = DB.Ping()
-    if err != nil {
-        return fmt.Errorf("greska pri pingovanju baze: %v", err)
-    }
+	// Ucitavanje koneckionog stringa iz env. fajla
+	connString := os.Getenv("DB_CONNECTION")
+	if connString == "" {
+		return fmt.Errorf("DB_CONNECTION is not defined in .env file")
+	}
+   
 
-    fmt.Println("Uspesno povezano sa bazom podataka!")
-    return nil
+	// Povezivanje sa bazom podataka
+	DB, err = sql.Open("sqlserver", connString)
+	if err != nil {
+		return fmt.Errorf("Error opening database connection: %v", err)
+	}
+
+	
+	err = DB.Ping()
+	if err != nil {
+		return fmt.Errorf("Error pinging database: %v", err)
+	}
+
+	return nil
 }
-
-
-     
-

@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"strconv"
 	"time"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -142,11 +141,11 @@ func generateInvoice(context *gin.Context) {
         totalMaterialCost += material.Price * float64(material.Quantity)
     }
 
-    // Izračunaj ukupnu cenu
-    laborCost := totalHours * 20 // Pretpostavljena cena rada po satu
+    
+    laborCost := totalHours * 20 
     totalCost := laborCost + totalMaterialCost
 
-    // Generiši automatsku fakturu (bez unosa u bazu još)
+    //Generisanje automatske fakture bez unosa u bazu
     context.JSON(http.StatusOK, gin.H{
         "work_order_id": workOrderId,
         "total_hours":   totalHours,
@@ -164,7 +163,7 @@ func finalizeInvoice(context *gin.Context) {
 		return
 	}
 
-    // Proveri da li postoji radni nalog
+  
     var exists bool
     query :=  `SELECT CASE 
     WHEN EXISTS (SELECT 1 FROM RadniNalog WHERE Nalog_ID = @Nalog_ID) 
@@ -178,7 +177,7 @@ END AS ExistsCheck`
         return
     }
 
-    // Dohvati ukupnu cenu (na osnovu prethodnih izračuna)
+  
     var totalPrice float64
     query = `SELECT 
         (SELECT SUM(BrojRadnihSati * @Satnica) FROM EvidencijaSati WHERE Nalog_ID = @Nalog_ID) +
@@ -191,7 +190,7 @@ END AS ExistsCheck`
     sql.Named("Satnica", satnica),
     sql.Named("Nalog_ID", workOrderId),)
 
-// Scan da popuni totalPrice
+
     err = row.Scan(&totalPrice)
     if err != nil {
         context.JSON(http.StatusInternalServerError, gin.H{"message": "Error calculating total price"})
@@ -199,7 +198,7 @@ END AS ExistsCheck`
     }
 
    
-    // Unesi fakturu u bazu
+    // Unos fakturu u bazu
     query = `INSERT INTO Faktura (Nalog_ID, Iznos, DatumFakture) VALUES (@Nalog_ID, @Iznos, GETDATE())`
     
     stmt, err := database.DB.Prepare(query)

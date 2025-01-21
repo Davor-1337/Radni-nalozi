@@ -4,8 +4,6 @@ import (
 	"Diplomski/models"
 	"net/http"
 	"strconv"
-
-	// "strconv"
 	"github.com/gin-gonic/gin"
 )
 
@@ -98,16 +96,6 @@ func getWorkOrderByTehnician(context *gin.Context) {
 	context.JSON(http.StatusOK, workOrder)
 }
 
-
-
-// func deleteTehnician(context *gin.Context) { PROVJERITI
-// 	tehnicianId, err := strconv.ParseInt(context.Param("id"), 10, 64)
-// 	if err != nil {
-// 		context.JSON(http.StatusInternalServerError, gin.H{"message": "Could not parse tehnician id."})
-// 		return
-// 	}
-
-// }
 
 func getTotalHours(context *gin.Context) {
 	serviserId, err := strconv.ParseInt(context.Param("id"), 10, 64)

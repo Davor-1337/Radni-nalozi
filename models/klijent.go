@@ -9,9 +9,9 @@ import (
 
 type Klijent struct {
 	Klijent_ID   int64  
-	Naziv        string `binding:"required"`
-	KontaktOsoba string `binding:"required"`
-	Email        string `binding:"required"`
+	Naziv        string
+	KontaktOsoba string
+	Email        string
 	Tel          string 
 	Adresa       string 
 	User_ID int64

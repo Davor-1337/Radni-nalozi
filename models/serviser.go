@@ -3,8 +3,6 @@ package models
 import (
 	"Diplomski/database"
 	"database/sql"
-
-	// "fmt"
 	"time"
 )
 
@@ -18,8 +16,8 @@ type Zadatak struct{
 
 type Serviser struct {
 	Serviser_ID   int64  
-	Ime        string `binding:"required"`
-	Prezime string `binding:"required"`
+	Ime        string 
+	Prezime string 
 	Specijalnost        string 
 	Telefon          string
 	User_ID int64
@@ -136,21 +134,6 @@ func GetWorkOrderByTehnicianID(serviserID int64) ([]RadniNalog, error) {
 	return workOrders, nil
 }
 
-
-// func (tehnician Serviser) Delete() error { PROVJERITI
-// 	query := `DELETE FROM Serviser WHERE Serviser_ID = @Serviser_ID`
-
-// 	stmt, err := database.DB.Prepare(query)
-// 	if err != nil {
-// 		return err
-// 	}
-
-// 	_, err = stmt.Exec(sql.Named("Serviser_ID", tehnician.Serviser_ID))
-
-// 	defer stmt.Close()
-
-// 	return nil 
-// }
 
 func GetHoursForTehnician(serviserId int64) (float64, error) {
 	query := `

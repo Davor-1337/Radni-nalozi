@@ -3,10 +3,7 @@ package routes
 import (
 	"Diplomski/models"
 	"Diplomski/utils"
-	"log"
 	"net/http"
-
-	// "strconv"
 	"github.com/gin-gonic/gin"
 )
 
@@ -40,7 +37,7 @@ func login(context *gin.Context) {
 	}
 
 	err = user.ValidateCredentials()
-	log.Println("Fetched role:", user.Role)
+	
 
 	if err != nil {
 		context.JSON(http.StatusUnauthorized, gin.H{"message": err.Error()})

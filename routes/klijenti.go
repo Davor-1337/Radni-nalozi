@@ -59,15 +59,6 @@ func updateClient(context *gin.Context) {
 	}
 
 
-	// client, err := models.GetClientByID(clientId)
-
-	
-	// if event.UserID != userId {
-	// 	context.JSON(http.StatusUnauthorized, gin.H{"message": "Not authorized to update event."})
-	// 	return
-	// }
-
-
 	var updatedClient models.Klijent
 	err = context.ShouldBindJSON(&updatedClient) 
 
@@ -92,18 +83,13 @@ clientId, err := strconv.ParseInt(context.Param("id"), 10, 64)
 		return
 	}
 
-	// userId := context.GetInt64("userId")
+
 	client, err := models.GetClientByID(clientId)
 
 	if err != nil{
 		context.JSON(http.StatusBadRequest, gin.H{"message": "Could not fetch the client."})
 		return
 	}
-
-	// if event.UserID != userId {
-	// 	context.JSON(http.StatusUnauthorized, gin.H{"message": "Not authorized to update event."})
-	// 	return
-	// }
 
 	err = client.Delete()
 	if err != nil {

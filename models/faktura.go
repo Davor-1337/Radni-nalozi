@@ -4,7 +4,6 @@ import (
 	"Diplomski/database"
 	"database/sql"
 	"time"
-	// "database/sql"
 )
 
 type Faktura struct{

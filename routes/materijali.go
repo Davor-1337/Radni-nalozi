@@ -4,7 +4,6 @@ import (
 	"Diplomski/models"
 	"net/http"
 	"strconv"
-
 	"github.com/gin-gonic/gin"
 )
 
