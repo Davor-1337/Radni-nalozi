@@ -1,0 +1,246 @@
+@use "../../../../variables" as *;
+
+body {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background-color: $background-color-light;
+
+  &::selection {
+    background: #1a75ff;
+    color: #fff;
+  }
+}
+
+.wrapper {
+  margin: 10rem auto;
+  overflow: hidden;
+  max-width: 39rem;
+  background: #fff;
+  padding: 3rem;
+  border-radius: 1.5rem;
+  box-shadow: 0px 1.5rem 2rem rgba(0, 0, 0, 0.1);
+
+  .title-text {
+    display: flex;
+    width: 200%;
+
+    .title {
+      width: 50%;
+      font-size: 35px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+  }
+
+  .slide-controls {
+    position: relative;
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    overflow: hidden;
+    margin: 3rem 0 1rem 0;
+    justify-content: space-between;
+    border: 1px solid lightgrey;
+    border-radius: 1.5rem;
+
+    .slide {
+      height: 100%;
+      width: 100%;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      text-align: center;
+      line-height: 48px;
+      cursor: pointer;
+      z-index: 1;
+      transition: all 0.6s ease;
+
+      &.signup {
+        color: #000;
+      }
+    }
+
+    .slider-tab {
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      left: 0;
+      z-index: 0;
+      border-radius: 1.5rem;
+      background-color: $dark-blue;
+      transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    #signup:checked ~ .slider-tab {
+      left: 50%;
+    }
+
+    #signup:checked ~ label.signup {
+      color: #fff;
+      cursor: default;
+      user-select: none;
+    }
+
+    #signup:checked ~ label.login {
+      color: #000;
+    }
+
+    #login:checked ~ label.signup {
+      color: #000;
+    }
+
+    #login:checked ~ label.login {
+      cursor: default;
+      user-select: none;
+    }
+  }
+
+  .form-container {
+    width: 100%;
+    overflow: hidden;
+
+    .form-inner {
+      display: flex;
+      width: 200%;
+      max-height: 45rem;
+      overflow-y: auto;
+      form {
+        width: 50%;
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        .field {
+          height: 5rem;
+          width: 100%;
+          margin-top: 2rem;
+
+          input,
+          select {
+            height: 100%;
+            width: 100%;
+            outline: none;
+            padding-left: 1.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid lightgrey;
+            border-bottom-width: 2px;
+            font-size: 17px;
+            transition: all 0.3s ease;
+
+            &:focus {
+              border-color: #041226;
+            }
+
+            &::placeholder {
+              color: #999;
+              transition: all 0.3s ease;
+            }
+
+            &:focus::placeholder {
+              color: #00264c;
+            }
+          }
+        }
+
+        .pass-link {
+          margin-top: 5px;
+        }
+
+        .signup-link {
+          text-align: center;
+          margin-top: 3rem;
+        }
+
+        .pass-link a,
+        .signup-link a {
+          color: #1a75ff;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .btn {
+          height: 5rem;
+          width: 100%;
+          border-radius: 1.5rem;
+          position: relative;
+          overflow: hidden;
+
+          .btn-layer {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            color: #fff;
+            background-color: $dark-blue;
+            border-radius: 1.5rem;
+            transition: all 0.4s ease;
+          }
+
+          &:hover .btn-layer {
+            left: 0;
+            background-color: #13499a;
+          }
+
+          input[type="submit"] {
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            position: relative;
+            background: none;
+            border: none;
+            color: #fff;
+            padding-left: 0;
+            border-radius: 1.5rem;
+            font-size: 2rem;
+            font-weight: 500;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 70%;
+  }
+}
+
+input[type="submit"]:disabled {
+  background-color: $dark-blue;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.field select {
+  color: #999;
+}
+
+.field select:valid,
+.field select option {
+  color: #000;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.error-message {
+  margin-left: 4px;
+  color: red;
+  margin-top: 1rem;
+  font-weight: bold;
+}

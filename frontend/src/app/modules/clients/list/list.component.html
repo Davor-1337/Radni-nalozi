@@ -1,0 +1,169 @@
+<div class="content">
+  <div class="top">
+    <span class="list">Clients</span>
+    <button class="add" (click)="openAddDialog()">
+      <i class="fa-solid fa-plus icon"></i>
+    </button>
+  </div>
+
+  <div class="recent-tasks">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="icon">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <i
+            class="icon"
+            (click)="deleteClient(element.Klijent_ID, $event)"
+            [class.editing]="editMode?.row === element"
+          ></i>
+        </td>
+      </ng-container>
+      <!-- ID Kolona -->
+      <ng-container matColumnDef="Client">
+        <th mat-header-cell *matHeaderCellDef>Client</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          (click)="openOrdersDialog(element.Klijent_ID, element.Naziv)"
+          class="naslov"
+        >
+          {{ element.Naziv }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Contact">
+        <th mat-header-cell *matHeaderCellDef>Contact</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          [class.editing-cell]="isEditing(element, 'Contact')"
+        >
+          <span
+            *ngIf="!isEditing(element, 'Contact')"
+            (click)="startEdit(element, 'Contact', $event)"
+          >
+            {{ element.KontaktOsoba }}
+          </span>
+          <input
+            *ngIf="isEditing(element, 'Contact')"
+            [(ngModel)]="editValue"
+            (keyup.enter)="saveEdit()"
+            (keyup.escape)="cancelEdit()"
+            class="edit-input"
+            autofocus
+          />
+        </td>
+        ></ng-container
+      >
+
+      <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          [class.editing-cell]="isEditing(element, 'Email')"
+        >
+          <span
+            *ngIf="!isEditing(element, 'Email')"
+            (click)="startEdit(element, 'Email', $event)"
+          >
+            {{ element.Email }}
+          </span>
+          <input
+            *ngIf="isEditing(element, 'Email')"
+            [(ngModel)]="editValue"
+            (keyup.enter)="saveEdit()"
+            (keyup.escape)="cancelEdit()"
+            class="edit-input"
+            autofocus
+          />
+        </td>
+        ></ng-container
+      >
+
+      <!-- Status Kolona -->
+      <ng-container matColumnDef="Tel">
+        <th mat-header-cell *matHeaderCellDef>Tel</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          [class.editing-cell]="isEditing(element, 'Tel')"
+        >
+          <span
+            *ngIf="!isEditing(element, 'Tel')"
+            (click)="startEdit(element, 'Tel', $event)"
+          >
+            {{ element.Tel }}
+          </span>
+          <input
+            *ngIf="isEditing(element, 'Tel')"
+            [(ngModel)]="editValue"
+            (keyup.enter)="saveEdit()"
+            (keyup.escape)="cancelEdit()"
+            class="edit-input"
+            autofocus
+          />
+        </td>
+        ></ng-container
+      >
+
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          [class.editing-cell]="isEditing(element, 'Address')"
+        >
+          <span
+            *ngIf="!isEditing(element, 'Address')"
+            (click)="startEdit(element, 'Address', $event)"
+          >
+            {{ element.Adresa }}
+          </span>
+          <input
+            *ngIf="isEditing(element, 'Address')"
+            [(ngModel)]="editValue"
+            (keyup.enter)="saveEdit()"
+            (keyup.escape)="cancelEdit()"
+            class="edit-input"
+            autofocus
+          />
+        </td>
+        ></ng-container
+      >
+
+      <ng-container matColumnDef="AccountID">
+        <th mat-header-cell *matHeaderCellDef>AccountID</th>
+        <td
+          mat-cell
+          *matCellDef="let element"
+          [class.editing-cell]="isEditing(element, 'AddressID')"
+        >
+          <span
+            *ngIf="!isEditing(element, 'AddressID')"
+            (click)="startEdit(element, 'AddressID', $event)"
+          >
+            {{ element.User_ID }}
+          </span>
+          <input
+            *ngIf="isEditing(element, 'AddressID')"
+            [(ngModel)]="editValue"
+            (keyup.enter)="saveEdit()"
+            (keyup.escape)="cancelEdit()"
+            class="edit-input"
+            autofocus
+          />
+        </td>
+      </ng-container>
+
+      <!-- Header i Redovi Tabele -->
+      <tr
+        mat-header-row
+        *matHeaderRowDef="displayedColumns"
+        class="sticky-header"
+      ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <div class="line"></div>
+</div>

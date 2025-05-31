@@ -1,2 +1,0 @@
-POST http://localhost:8080/fakture/generisi/23
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczNjQ3ODAzNX0.zpF-IG53OS5GhrQeALd9tlzdOaxkzU-M2npkexOz8F0

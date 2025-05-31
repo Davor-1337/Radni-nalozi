@@ -1,0 +1,187 @@
+<div class="split-layout">
+  <div class="left">
+    <div class="top">
+      <span class="list">Invoices </span>
+      <button class="add" (click)="openAddDialog()">
+        <i class="fa-solid fa-plus icon"></i>
+      </button>
+    </div>
+    <div class="container">
+      <div class="table-container">
+        <div class="line"></div>
+        <div class="recent-tasks">
+          <table
+            mat-table
+            [dataSource]="recentInvoices"
+            class="mat-elevation-z8"
+          >
+            <ng-container matColumnDef="icon">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <i
+                  class="icon"
+                  (click)="deleteInvoice(element.faktura_id, $event)"
+                  [class.editing]="editMode?.row === element"
+                ></i>
+              </td>
+            </ng-container>
+            <!-- ID Kolona -->
+            <ng-container matColumnDef="broj_naloga">
+              <th mat-header-cell *matHeaderCellDef>Nalog</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.broj_naloga }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="datum_fakture">
+              <th mat-header-cell *matHeaderCellDef>Datum</th>
+              <td
+                mat-cell
+                *matCellDef="let element"
+                [class.editing-cell]="isEditing(element, 'datum_fakture')"
+              >
+                <span
+                  *ngIf="!isEditing(element, 'datum_fakture')"
+                  (click)="startEdit(element, 'datum_fakture', $event)"
+                >
+                  {{ element.datum_fakture | date : "dd MMM, yyyy" }}
+                </span>
+                <input
+                  *ngIf="isEditing(element, 'datum_fakture')"
+                  [(ngModel)]="editValue"
+                  (keyup.enter)="saveEdit()"
+                  (keyup.escape)="cancelEdit()"
+                  class="edit-input"
+                  autofocus
+                />
+              </td>
+              ></ng-container
+            >
+
+            <ng-container matColumnDef="iznos">
+              <th mat-header-cell *matHeaderCellDef>Iznos</th>
+              <td
+                mat-cell
+                *matCellDef="let element"
+                [class.editing-cell]="isEditing(element, 'iznos')"
+              >
+                <span
+                  *ngIf="!isEditing(element, 'iznos')"
+                  (click)="startEdit(element, 'iznos', $event)"
+                >
+                  {{ element.iznos }}
+                </span>
+                <input
+                  *ngIf="isEditing(element, 'iznos')"
+                  [(ngModel)]="editValue"
+                  (keyup.enter)="saveEdit()"
+                  (keyup.escape)="cancelEdit()"
+                  class="edit-input"
+                  autofocus
+                />
+              </td>
+              ></ng-container
+            >
+
+            <!-- Header i Redovi Tabele -->
+            <tr
+              mat-header-row
+              *matHeaderRowDef="displayedColumns"
+              class="sticky-header"
+            ></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+          </table>
+        </div>
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="top">
+      <span class="list">Reports</span>
+      <button class="add" (click)="startReportGeneration()">
+        <i class="fa-solid fa-file-pdf icon"></i>
+        <!-- Promijenite ikonu za PDF -->
+      </button>
+    </div>
+
+    <div class="container2">
+      <div class="table-container2">
+        <div
+          class="line"
+          [class.client-table]="authService.getRole() === 'klijent'"
+        ></div>
+        <div
+          class="recent-tasks2"
+          [class.selection-active]="isSelectingReport"
+          [class.client-table]="authService.getRole() === 'klijent'"
+        >
+          <table
+            mat-table
+            [dataSource]="recentReports"
+            class="mat-elevation-z8"
+          >
+            <ng-container matColumnDef="icon">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element">
+                <i class="icon" [class.editing]="false"></i>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="BrojNaloga">
+              <th mat-header-cell *matHeaderCellDef class="work-order">
+                Nalog
+              </th>
+              <td mat-cell *matCellDef="let element" class="work-order">
+                {{ element.BrojNaloga }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Klijent">
+              <th mat-header-cell *matHeaderCellDef>Klijent</th>
+              <td mat-cell *matCellDef="let element">{{ element.Klijent }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="OpisProblema">
+              <th mat-header-cell *matHeaderCellDef>Opis problema</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.OpisProblema }}
+              </td>
+            </ng-container>
+
+            <tr
+              mat-header-row
+              *matHeaderRowDef="displayedColumnsReports"
+              class="sticky-header"
+            ></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumnsReports"
+              [class.selected-row]="selectedOrder?.id === row.Nalog_ID"
+              (click)="openReport(row.Nalog_ID)"
+            ></tr>
+          </table>
+        </div>
+        <div
+          class="line"
+          [class.client-table]="authService.getRole() === 'klijent'"
+        ></div>
+      </div>
+
+      <!-- Overlay za selektovanje -->
+      <div *ngIf="isSelectingReport" class="selection-overlay">
+        <div class="selection-prompt">
+          <h3>Select a work order for the report</h3>
+          <button
+            class="cancel-btn"
+            mat-raised-button
+            color="warn"
+            (click)="resetReportSelection()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<body>
+  <nav class="sidebar">
+    <div class="logo">
+      <img src="images/logo1.png" alt="logo" />
+    </div>
+    <div class="line">
+      <hr />
+    </div>
+    <ul class="nav-list">
+      <div
+        class="list-item"
+        *ngFor="let item of menuItems"
+        (click)="setActive(item)"
+        [ngClass]="{ active: activeItem === item }"
+        routerLinkActive="active"
+        [routerLink]="item.href"
+      >
+        <div class="icon">
+          <i [class]="item.icon"></i>
+        </div>
+        <li>
+          <span class="a">{{ item.name }}</span>
+        </li>
+      </div>
+    </ul>
+  </nav>
+</body>

@@ -1,0 +1,49 @@
+<div class="container">
+  <form [formGroup]="techniciansForm" (ngSubmit)="onSubmit()">
+    <button type="button" class="close-button" (click)="closeForm()">
+      <i class="icon fa-solid fa-xmark"></i>
+    </button>
+    <div class="name">
+      <label for="name">Ime:</label>
+      <input id="name" type="text" formControlName="Ime" />
+    </div>
+
+    <div class="surname">
+      <label for="surname">Prezime:</label>
+      <input id="surname" type="text" formControlName="Prezime" />
+    </div>
+
+    <div class="proffesion">
+      <label for="proffesion">Specijalnost:</label>
+      <input id="proffesion" type="text" formControlName="Specijalnost" />
+    </div>
+
+    <div class="tel">
+      <label for="tel">Telefon:</label>
+      <input id="tel" type="text" formControlName="Telefon" />
+
+      <div
+        *ngIf="
+          techniciansForm.get('Telefon')?.invalid &&
+          techniciansForm.get('Telefon')?.touched
+        "
+      >
+        <small
+          *ngIf="techniciansForm.get('Telefon')?.errors?.['required']"
+          style="color: red"
+        >
+          Broj telefona je obavezan.
+        </small>
+        <small
+          *ngIf="techniciansForm.get('Telefon')?.errors?.['pattern']"
+          style="color: red"
+        >
+          Broj telefona mora sadržavati samo brojeve (6-15 cifara).
+        </small>
+      </div>
+    </div>
+    <button class="btn" type="submit" [disabled]="techniciansForm.invalid">
+      Add
+    </button>
+  </form>
+</div>

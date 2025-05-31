@@ -1,0 +1,3 @@
+PUT http://localhost:8080/radni-nalozi/25/zavrsi?Serviser_ID=101
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczOTk5Mjg0N30.HKUAPsiP7QMiUBPfQDSAsYJXO_MOaDM8cAgHQ9swsmM

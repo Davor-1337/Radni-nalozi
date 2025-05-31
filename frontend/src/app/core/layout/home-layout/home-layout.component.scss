@@ -1,0 +1,147 @@
+@use "../../../../variables" as *;
+
+.home-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 2rem;
+  background-color: $background-color;
+
+  .top-container {
+    height: 55%;
+    background-color: $white-primary;
+    border-radius: 1.5rem;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+
+    .upper {
+      display: flex;
+      justify-content: space-between;
+
+      .last-tasks {
+        margin: 1.5rem 0 0 4rem;
+        font-size: $default-font-size;
+
+        .last {
+          color: $dark-blue;
+          font-size: 3.2rem;
+          font-weight: 700;
+          display: inline-block;
+          margin-bottom: 1rem;
+        }
+
+        .total {
+          color: $dark-blue;
+          font-size: 1.8rem;
+          font-weight: 500;
+        }
+
+        .label {
+          color: $text-color-lighter;
+          font-size: 1.4rem;
+        }
+      }
+
+      .numbers {
+        display: flex;
+        font-size: $default-font-size;
+        margin: 1.5rem 8rem 0 0;
+        gap: 8rem;
+
+        .num {
+          color: $dark-blue;
+          font-size: 3.2rem;
+          font-weight: 600;
+        }
+
+        .label {
+          font-size: $default-font-size;
+          color: $text-color-lighter;
+          display: inline-block;
+          margin-top: -0.5rem;
+        }
+
+        .progress {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 0;
+        }
+
+        .done {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    }
+    .recent-tasks {
+      width: 90%;
+      margin-left: 3rem;
+      margin-top: 3rem;
+
+      table {
+        border-collapse: collapse;
+        background-color: transparent;
+
+        .icon {
+          color: #dcdddf;
+          font-size: 1.6rem;
+        }
+      }
+
+      tr {
+        height: 3.5rem;
+      }
+
+      th,
+      td {
+        padding: 2px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 10px;
+        border: none;
+        color: $text-color-light;
+      }
+
+      th {
+        background-color: transparent;
+        color: $text-color-lighter;
+        font-size: 1.2rem;
+        border-top: 1px solid #dcdddf;
+        border-bottom: 1px solid #dcdddf;
+      }
+    }
+  }
+
+  .bottom-container {
+    display: flex;
+    gap: 2rem;
+    flex: 1;
+
+    .left-container,
+    .right-container {
+      flex: 1;
+      background-color: $white-primary;
+      border-radius: 1.5rem;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .left-container {
+      padding: 1rem;
+    }
+
+    .right-container {
+      background-color: $dark-blue;
+      font-size: $default-font-size;
+      color: #fff;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+
+      span {
+        display: inline-block;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        margin-left: 3rem;
+      }
+    }
+  }
+}

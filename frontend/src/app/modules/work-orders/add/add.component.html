@@ -1,0 +1,45 @@
+<div class="container">
+  <form [formGroup]="workOrderForm" (ngSubmit)="onSubmit()">
+    <button type="button" class="close-button" (click)="closeForm()">
+      <i class="icon fa-solid fa-xmark"></i>
+    </button>
+    <div class="problem">
+      <label for="problem">Problem:</label>
+      <input id="problem" type="text" formControlName="opisProblema" />
+    </div>
+
+    <div class="prioritet">
+      <label>Priority:</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" formControlName="prioritet" value="Visok" /> Visok
+        </label>
+        <label>
+          <input type="radio" formControlName="prioritet" value="Nizak" /> Nizak
+        </label>
+      </div>
+    </div>
+
+    <div class="lokacija">
+      <label for="lokacija">Location:</label>
+      <input id="lokacija" type="text" formControlName="lokacija" />
+    </div>
+
+    <div class="status" *ngIf="role !== 'klijent'">
+      <label for="status">Status:</label>
+      <select id="status" formControlName="status">
+        <option value="U obradi">U obradi</option>
+        <option value="Na čekanju">Na čekanju</option>
+      </select>
+    </div>
+
+    <div class="client" *ngIf="role !== 'klijent'">
+      <label for="client">Client ID:</label>
+      <input id="client" type="text" formControlName="client" />
+    </div>
+
+    <button class="btn" type="submit" [disabled]="workOrderForm.invalid">
+      Add
+    </button>
+  </form>
+</div>

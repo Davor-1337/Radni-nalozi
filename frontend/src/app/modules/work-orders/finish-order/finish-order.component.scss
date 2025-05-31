@@ -1,0 +1,116 @@
+@use "../../../../variables" as *;
+
+h2 {
+  color: $dark-blue;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  background-color: $background-color-light;
+}
+
+.finish-order-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: $background-color-light;
+  width: 50rem;
+  padding: 2rem;
+
+  .materials-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .material-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .material-field,
+    .quantity-field {
+      flex: 1;
+    }
+
+    mat-form-field {
+      width: 100%;
+      background-color: white;
+      border-radius: 8px;
+      font-size: 1.4rem;
+    }
+
+    button {
+      align-self: flex-end;
+      margin-bottom: 1.5rem;
+    }
+  }
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .word {
+    font-size: 1rem;
+  }
+
+  .hours-field {
+    width: 100%;
+    max-width: 45rem;
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+
+    button {
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-size: $default-font-size;
+      transition: transform 0.2s;
+
+      &:hover:not(:disabled) {
+        transform: scale(1.05);
+      }
+
+      &:disabled {
+        background-color: $text-color-light;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .btn {
+    background-color: $dark-blue;
+    font-size: $default-font-size;
+    color: #fff;
+    border-radius: 1.5rem;
+  }
+
+  .btn-cancel {
+    color: #fff;
+    background-color: $text-color-light;
+  }
+
+  .btn-accept {
+    background-color: $dark-blue;
+  }
+
+  .error {
+    color: red;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+
+  .success {
+    color: green;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+}

@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="search-bar" *ngIf="shouldShowSearch(); else showUsername">
+    <input
+      #searchBox
+      type="text"
+      placeholder="Search"
+      (input)="onSearchChange(searchBox.value)"
+    />
+    <i class="icon fa-solid fa-magnifying-glass"></i>
+  </div>
+
+  <ng-template #showUsername>
+    <div class="user-display" (click)="openUserDialog()">
+      <div class="icon">
+        <i class="fa-solid fa-circle-user"></i>
+      </div>
+      <span class="username">{{ username }}</span>
+    </div>
+  </ng-template>
+
+  <div class="date-display">
+    {{ currentDate | date : "mediumDate" }}
+  </div>
+  <div class="logout" (click)="logout()">
+    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+  </div>
+</div>

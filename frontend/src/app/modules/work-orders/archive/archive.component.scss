@@ -1,0 +1,108 @@
+@use "../../../../variables" as *;
+
+.container {
+  .header {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    h2 {
+      color: $dark-blue;
+      font-size: 2.4rem;
+      padding-left: 4.5rem;
+    }
+
+    .close-button {
+      margin-right: 4.5rem;
+      background-color: $white-primary;
+      border: none;
+      font-size: 2.4rem;
+      color: $text-color-light;
+      transition: all 0.3s;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+      }
+    }
+  }
+  .recent-tasks {
+    width: 90%;
+    margin-left: 4.5rem;
+    margin-top: 3rem;
+    height: 40rem;
+    overflow: auto;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #dcdddf;
+      border-radius: 3px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: transparent;
+
+      display: table;
+
+      thead {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background-color: white;
+        display: block;
+        tr {
+          background-color: inherit;
+        }
+      }
+
+      .icon {
+        color: #dcdddf;
+        font-size: 1.6rem;
+
+        &:hover {
+          color: red;
+          transform: scale(1.2);
+        }
+      }
+    }
+
+    tr {
+      height: 3.5rem;
+      display: table-row;
+    }
+
+    th,
+    td {
+      padding: 2px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.3rem;
+      border: none;
+      color: $text-color-light;
+      display: table-cell;
+    }
+
+    th {
+      background-color: transparent;
+      color: $text-color-lighter;
+      font-size: 1.7rem;
+      border-top: 1px solid #dcdddf;
+    }
+
+    td {
+      padding-top: 3rem;
+    }
+  }
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}

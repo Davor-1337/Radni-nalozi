@@ -1,0 +1,25 @@
+<div class="container">
+  <form [formGroup]="materialsForm" (ngSubmit)="onSubmit()">
+    <button type="button" class="close-button" (click)="closeForm()">
+      <i class="icon fa-solid fa-xmark"></i>
+    </button>
+    <div class="material">
+      <label for="material">Materijal:</label>
+      <input id="material" type="text" formControlName="NazivMaterijala" />
+    </div>
+
+    <div class="lokacija">
+      <label for="lokacija">Cijena:</label>
+      <input id="lokacija" type="text" formControlName="Cijena" />
+    </div>
+
+    <div class="client">
+      <label for="client">Kolicina:</label>
+      <input id="client" type="text" formControlName="KolicinaUSkladistu" />
+    </div>
+
+    <button class="btn" type="submit" [disabled]="materialsForm.invalid">
+      Add
+    </button>
+  </form>
+</div>

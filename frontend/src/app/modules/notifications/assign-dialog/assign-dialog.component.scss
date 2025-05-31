@@ -1,0 +1,79 @@
+@use "../../../../variables" as *;
+
+:host {
+  display: block;
+  padding: 2rem;
+  min-width: 35rem;
+  background-color: $background-color-light;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba($dark-blue, 0.15);
+}
+
+h2[mat-dialog-title] {
+  font-size: 2.4rem;
+  font-weight: 600;
+  color: $dark-blue;
+  margin-bottom: 1rem;
+}
+
+mat-dialog-content {
+  padding: 0;
+  margin-bottom: 1.5rem;
+
+  mat-form-field {
+    width: 100%;
+    .mat-form-field-wrapper {
+      padding-bottom: 0.75rem;
+    }
+  }
+}
+
+mat-select {
+  .mat-select-trigger {
+    font-size: 1.6rem;
+    color: $text-color-dark;
+  }
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2rem;
+  padding: 0;
+
+  button {
+    font-size: 1.6rem;
+    padding: 0.8rem 2rem;
+    border-radius: 0.6rem;
+    text-transform: none;
+    min-width: 6rem;
+  }
+
+  .cancel {
+    background-color: transparent;
+    color: $text-color-dark;
+    border: 1px solid $dark-blue;
+
+    &:hover {
+      background-color: rgba($dark-blue, 0.05);
+    }
+  }
+
+  .confirm {
+    background-color: $dark-blue;
+    color: white;
+    border: none;
+
+    &:hover {
+      background-color: #021a3b;
+    }
+
+    &:disabled {
+      background-color: $text-color-light;
+      color: $text-color-dark;
+    }
+  }
+}
+mat-label {
+  font-size: 1.6rem;
+}

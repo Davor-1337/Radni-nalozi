@@ -1,0 +1,154 @@
+<ng-container *ngIf="isAdmin; else userView">
+  <!-- ===== ADMIN SPLIT LAYOUT ===== -->
+  <div class="split-layout">
+    <div class="top">
+      <h3>Pending Work Orders</h3>
+      <ul class="notifications">
+        <li class="notification" *ngFor="let nalog of radniNalozi">
+          <div class="info">
+            <div class="user-container">
+              <p class="user">
+                <strong class="username">{{ nalog.nazivKlijenta }}</strong
+                ><br />
+                have submitted a work order.
+              </p>
+            </div>
+            <div class="details-container">
+              <div class="container-first">
+                <p><strong>Location:</strong> {{ nalog.lokacija }}</p>
+                <p><strong>Problem:</strong> {{ nalog.opisProblema }}</p>
+              </div>
+              <div class="container-second">
+                <p>
+                  <strong>Date:</strong>
+                  {{ nalog.datumOtvaranja | date : "dd.MM.yyyy HH:mm" }}
+                </p>
+                <p><strong>Priority:</strong> {{ nalog.prioritet }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="actions">
+            <button
+              class="approve"
+              (click)="handleWorkOrder(nalog.id, 'Otvoren')"
+            >
+              Approve
+            </button>
+            <button class="deny" (click)="handleWorkOrder(nalog.id, 'Odbijen')">
+              Deny
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="bottom">
+      <h3>Account Requests</h3>
+      <ul class="notifications">
+        <li class="notification" *ngFor="let zahtjev of zahtjevi">
+          <div class="info">
+            <div class="user-container">
+              <p class="user">
+                <strong class="username">{{ zahtjev.username }}</strong>
+                has requested an account.
+              </p>
+            </div>
+            <div class="role-container">
+              <p>
+                Role:
+                <strong class="role">{{ zahtjev.role | titlecase }}</strong>
+              </p>
+            </div>
+            <p>
+              Created at:
+              {{ zahtjev.vrijemeKreiranja | date : "dd.MM.yyyy HH:mm" }}
+            </p>
+          </div>
+          <div class="actions">
+            <button
+              class="approve"
+              (click)="handleRequest(zahtjev.zahtjev_id, 'prihvati')"
+            >
+              Approve
+            </button>
+            <button
+              class="deny"
+              (click)="handleRequest(zahtjev.zahtjev_id, 'odbij')"
+            >
+              Deny
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #userView>
+  <div class="notifications-container">
+    <h3>Obavještenja</h3>
+
+    <ul class="notifications-list">
+      <li
+        class="notification"
+        *ngFor="let o of obavestenja"
+        [class.read]="o.procitano"
+      >
+        <div class="notification-header">
+          <p class="message">{{ o.poruka }}</p>
+          <small class="timestamp">{{
+            o.datum_kreiranja | date : "dd.MM.yyyy HH:mm"
+          }}</small>
+        </div>
+        <div class="buttons">
+          <button class="toggle-details" (click)="toggleDetails(o.poruka)">
+            {{
+              selectedNotificationId === extractWorkOrderId(o.poruka)
+                ? "Sakrij detalje"
+                : "Prikaži detalje"
+            }}
+          </button>
+          <button
+            class="toggle-details"
+            (click)="obrisiObavestenje(o.poruka, o.obavestenje_id)"
+          >
+            Obriši
+          </button>
+        </div>
+        <div
+          *ngIf="selectedNotificationId === extractWorkOrderId(o.poruka)"
+          class="work-order-details"
+        >
+          <h4>Detalji radnog naloga #{{ selectedWorkOrderDetails?.id }}</h4>
+          <p>
+            <strong>Opis problema:</strong>
+            {{ selectedWorkOrderDetails?.opisProblema }}
+          </p>
+          <p>
+            <strong>Prioritet:</strong>
+            {{ selectedWorkOrderDetails?.prioritet }}
+          </p>
+          <p><strong>Status:</strong> {{ selectedWorkOrderDetails?.status }}</p>
+          <p>
+            <strong>Datum otvaranja:</strong>
+            {{
+              selectedWorkOrderDetails?.datumOtvaranja
+                | date : "dd.MM.yyyy HH:mm"
+            }}
+          </p>
+          <p>
+            <strong>Lokacija:</strong> {{ selectedWorkOrderDetails?.lokacija }}
+          </p>
+          <p>
+            <strong>Broj naloga:</strong>
+            {{ selectedWorkOrderDetails?.brojNaloga }}
+          </p>
+        </div>
+      </li>
+    </ul>
+
+    <div *ngIf="!obavestenja.length" class="no-notifs">
+      Trenutno nema obaveštenja.
+    </div>
+  </div>
+</ng-template>

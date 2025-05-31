@@ -1,0 +1,2 @@
+GET http://localhost:8080/izvjestaji/radni-nalog/pdf/24
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczOTk5NzE1OX0.6hX4r7u_IrxGN9N5dydpX8NV6rZWMXATGFd9eayfRLU

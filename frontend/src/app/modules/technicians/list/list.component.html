@@ -1,0 +1,88 @@
+<div class="split-layout">
+  <div class="left">
+    <div class="top">
+      <span class="list">Technicians </span>
+      <button class="add" (click)="openAddDialog()">
+        <i class="fa-solid fa-plus icon"></i>
+      </button>
+    </div>
+
+    <div class="tech-container">
+      <div
+        *ngFor="let tech of technicians"
+        class="technician"
+        [class.focused]="focusedTechnician === tech.User_ID"
+        (click)="setFocus(tech.User_ID)"
+        (click)="onServiserClick(tech.Serviser_ID)"
+      >
+        <div class="name">
+          <h3>{{ tech.Ime }} {{ tech.Prezime }}</h3>
+        </div>
+        <div class="details">
+          <p>Specijalnost: {{ tech.Specijalnost }}</p>
+          <p>ID: {{ tech.User_ID }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="top">
+      <span class="list">Orders</span>
+      <button class="details-btn" (click)="openDialog()">Details</button>
+    </div>
+
+    <div class="container2">
+      <div class="table-container2">
+        <div class="line"></div>
+        <div class="recent-tasks2">
+          <table
+            mat-table
+            [dataSource]="technicianWorkOrders"
+            class="mat-elevation-z8"
+          >
+            <ng-container matColumnDef="icon">
+              <th mat-header-cell *matHeaderCellDef class="cell-icon"></th>
+              <td mat-cell *matCellDef="let element" class="cell-icon">
+                <i class="icon"></i>
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="BrojNaloga">
+              <th mat-header-cell *matHeaderCellDef class="cell-order">
+                Nalog
+              </th>
+              <td mat-cell *matCellDef="let element" class="cell-order">
+                {{ element.BrojNaloga }}
+              </td>
+            </ng-container>
+
+            <ng-container matColumnDef="Klijent">
+              <th mat-header-cell *matHeaderCellDef>Klijent</th>
+              <td mat-cell *matCellDef="let element">{{ element.Klijent }}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="OpisProblema">
+              <th mat-header-cell *matHeaderCellDef>Opis problema</th>
+              <td mat-cell *matCellDef="let element">
+                {{ element.OpisProblema }}
+              </td>
+            </ng-container>
+
+            <tr
+              mat-header-row
+              *matHeaderRowDef="displayedColumnsOrders"
+              class="sticky-header"
+            ></tr>
+            <tr
+              mat-row
+              *matRowDef="let row; columns: displayedColumnsOrders"
+            ></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="total">
+      Total hours done: <span class="hours">{{ totalHours }}</span>
+    </div>
+  </div>
+</div>

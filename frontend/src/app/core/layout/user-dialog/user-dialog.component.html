@@ -1,0 +1,52 @@
+<div class="container">
+  <button type="button" class="close-button" (click)="close()">
+    <i class="icon fa-solid fa-xmark"></i>
+  </button>
+  <div class="user-display">
+    <div class="icon">
+      <i class="fa-solid fa-circle-user"></i>
+    </div>
+    <span class="username">{{ data.username }}</span>
+  </div>
+
+  <mat-dialog-content class="form-content">
+    <p><strong>Role:</strong> {{ data.role }}</p>
+    <button
+      mat-stroked-button
+      color="primary"
+      class="change-btn"
+      (click)="togglePasswordFields()"
+    >
+      {{ showPasswordFields ? "Odustani" : "Promijeni lozinku" }}
+    </button>
+    <div *ngIf="showPasswordFields">
+      <mat-form-field appearance="outline" class="custom-field">
+        <mat-label>Trenutna lozinka</mat-label>
+        <input matInput type="password" [(ngModel)]="currentPassword" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="custom-field">
+        <mat-label>Nova lozinka</mat-label>
+        <input matInput type="password" [(ngModel)]="newPassword" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="custom-field">
+        <mat-label>Potvrdi lozinku</mat-label>
+        <input matInput type="password" [(ngModel)]="confirmPassword" />
+      </mat-form-field>
+    </div>
+  </mat-dialog-content>
+  <div *ngIf="showPasswordFields">
+    <mat-dialog-actions align="end" class="actions">
+      <button mat-button class="cancel" (click)="close()">Otkaži</button>
+      <button
+        mat-flat-button
+        color="primary"
+        class="confirm"
+        (click)="changePassword()"
+      >
+        Promijeni lozinku
+      </button>
+    </mat-dialog-actions>
+  </div>
+</div>

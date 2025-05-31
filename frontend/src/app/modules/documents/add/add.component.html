@@ -1,0 +1,48 @@
+<!-- src/app/components/add/add.component.html -->
+<div class="container">
+  <form [formGroup]="invoicesForm" (ngSubmit)="onGenerate()">
+    <button type="button" class="close-button" (click)="closeForm()">
+      <i class="icon fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="field">
+      <label for="nalog">Nalog ID:</label>
+      <input id="nalog" type="number" formControlName="Nalog_ID" />
+    </div>
+
+    <div class="actions">
+      <button
+        type="submit"
+        class="btn"
+        [disabled]="invoicesForm.invalid || loadingGenerate"
+      >
+        {{ loadingGenerate ? "Generating…" : "Generate" }}
+      </button>
+    </div>
+  </form>
+
+  <!-- Preview sekcija -->
+  <div *ngIf="preview" class="preview">
+    <h3>Pregled Fakture</h3>
+    <p><strong>Ukupni sati:</strong> {{ preview.total_hours }}</p>
+    <p>
+      <strong>Cijena rada:</strong>
+      {{ preview.labor_cost | currency : "BAM" : "symbol" : "1.2-2" }}
+    </p>
+    <p><strong>Materijal:</strong></p>
+    <ul>
+      <li *ngFor="let m of preview.materials">
+        {{ m.name }} — {{ m.quantity }} ×
+        {{ m.price | currency : "BAM" : "symbol" : "1.2-2" }}
+      </li>
+    </ul>
+    <p>
+      <strong>Ukupan iznos:</strong>
+      {{ preview.total_cost | currency : "BAM" : "symbol" : "1.2-2" }}
+    </p>
+
+    <button class="btn add-btn" (click)="onAdd()" [disabled]="loadingFinalize">
+      {{ loadingFinalize ? "Adding…" : "Add" }}
+    </button>
+  </div>
+</div>

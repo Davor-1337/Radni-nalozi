@@ -1,0 +1,45 @@
+<div class="container">
+  <form [formGroup]="clientsForm" (ngSubmit)="onSubmit()">
+    <button type="button" class="close-button" (click)="closeForm()">
+      <i class="icon fa-solid fa-xmark"></i>
+    </button>
+    <div class="material">
+      <label for="material">Klijent_ID:</label>
+      <input id="material" type="text" formControlName="Klijent_ID" />
+    </div>
+
+    <div class="lokacija">
+      <label for="lokacija">Naziv:</label>
+      <input id="lokacija" type="text" formControlName="Naziv" />
+    </div>
+
+    <div class="client">
+      <label for="client">KontaktOsoba:</label>
+      <input id="client" type="text" formControlName="KontaktOsoba" />
+    </div>
+
+    <div class="client">
+      <label for="client">Email:</label>
+      <input id="client" type="text" formControlName="Email" />
+    </div>
+
+    <div class="client">
+      <label for="client">Tel:</label>
+      <input id="client" type="text" formControlName="Tel" />
+    </div>
+
+    <div class="client">
+      <label for="client">Adresa:</label>
+      <input id="client" type="text" formControlName="Adresa" />
+    </div>
+
+    <div class="client">
+      <label for="client">User_ID:</label>
+      <input id="client" type="text" formControlName="User_ID" />
+    </div>
+
+    <button class="btn" type="submit" [disabled]="clientsForm.invalid">
+      Add
+    </button>
+  </form>
+</div>

@@ -1,0 +1,74 @@
+<div class="content">
+  <div class="top">
+    <span class="list">Details</span>
+  </div>
+
+  <div class="recent-tasks">
+    <table mat-table [dataSource]="workOrders" class="mat-elevation-z8">
+      <!-- Ikona Kolona -->
+      <ng-container matColumnDef="icon">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <i class="icon"></i>
+        </td>
+      </ng-container>
+
+      <!-- Klijent Kolona -->
+      <ng-container matColumnDef="Klijent">
+        <th mat-header-cell *matHeaderCellDef>Klijent</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.NazivKlijenta }}
+        </td>
+      </ng-container>
+
+      <!-- Opis Problema Kolona -->
+      <ng-container matColumnDef="OpisProblema">
+        <th mat-header-cell *matHeaderCellDef>Opis Problema</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.OpisProblema }}
+        </td>
+      </ng-container>
+
+      <!-- Lokacija Kolona -->
+      <ng-container matColumnDef="Lokacija">
+        <th mat-header-cell *matHeaderCellDef>Lokacija</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.Lokacija }}
+        </td>
+      </ng-container>
+
+      <!-- Datum Dodjele Kolona -->
+      <ng-container matColumnDef="DatumDodjele">
+        <th mat-header-cell *matHeaderCellDef>Datum Dodjele</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.DatumDodjele | date : "dd/MM/yyyy" }}
+        </td>
+      </ng-container>
+
+      <!-- Datum Zavrsetka Kolona -->
+      <ng-container matColumnDef="DatumZavrsetka">
+        <th mat-header-cell *matHeaderCellDef>Datum Zavrsetka</th>
+        <td mat-cell *matCellDef="let element">
+          {{ formatDate(element.DatumZavrsetka) }}
+        </td>
+      </ng-container>
+
+      <!-- Broj Radnih Sati Kolona -->
+      <ng-container matColumnDef="BrojRadnihSati">
+        <th mat-header-cell *matHeaderCellDef>Broj Radnih Sati</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.BrojRadnihSati }}
+        </td>
+      </ng-container>
+
+      <!-- Header i Redovi Tabele -->
+      <tr
+        mat-header-row
+        *matHeaderRowDef="displayedColumns"
+        class="sticky-header"
+      ></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  <div class="line"></div>
+</div>

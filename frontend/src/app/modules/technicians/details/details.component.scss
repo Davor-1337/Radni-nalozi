@@ -1,0 +1,111 @@
+@use "../../../../variables" as *;
+
+.content {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  border-radius: 1.5rem;
+  .top {
+    display: flex;
+    justify-content: space-between;
+    .list {
+      font-size: 3rem;
+      color: $dark-blue;
+      display: inline-block;
+      margin-top: 4rem;
+      margin-left: 4rem;
+      font-weight: 700;
+    }
+
+    .icon {
+      font-size: 2rem;
+      transition: all 0.3s;
+    }
+  }
+
+  .recent-tasks {
+    width: 90%;
+    margin-left: 6rem;
+    margin-top: 2rem;
+    height: 30rem;
+    overflow: auto;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #dcdddf;
+      border-radius: 3px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: transparent;
+
+      display: table;
+
+      thead {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background-color: white;
+        display: block;
+        tr {
+          background-color: inherit;
+        }
+      }
+
+      .icon {
+        display: inline-block;
+        width: 2rem;
+        height: 2rem;
+        border: 2px solid #dcdddf;
+        border-radius: 4px;
+        position: relative;
+      }
+    }
+
+    tr {
+      height: 3.5rem;
+      display: table-row;
+    }
+
+    th,
+    td {
+      padding: 2px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.3rem;
+      border: none;
+      color: $text-color-light;
+      display: table-cell;
+    }
+
+    th {
+      background-color: transparent;
+      color: $text-color-lighter;
+      font-size: 1.7rem;
+      border-top: 1px solid #dcdddf;
+    }
+
+    td {
+      padding-top: 3rem;
+    }
+  }
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.line {
+  margin-top: 1.5rem;
+  margin-left: 6rem;
+  border-bottom: 1px solid #ddd;
+  width: 90%;
+}

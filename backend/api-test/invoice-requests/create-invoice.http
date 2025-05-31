@@ -1,0 +1,9 @@
+POST http://localhost:8080/fakture
+content-type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlIjoiYWRtaW4iLCJVc2VyX0lEIjoxMywiVXNlcm5hbWUiOiJkYXZvciIsImV4cCI6MTczOTk5Mjg0N30.HKUAPsiP7QMiUBPfQDSAsYJXO_MOaDM8cAgHQ9swsmM
+
+{ 
+  "Nalog_ID": 23,    
+	"Iznos": 1222.3,
+	"DatumFakture": "2024-05-04T00:00:00Z"   
+}

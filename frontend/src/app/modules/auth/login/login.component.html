@@ -1,0 +1,235 @@
+<body>
+  <div class="wrapper">
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo" />
+    </div>
+    <div class="title-text"></div>
+    <div class="form-container">
+      <div class="slide-controls">
+        <input
+          type="radio"
+          name="slide"
+          id="login"
+          [(ngModel)]="activeForm"
+          [value]="'login'"
+          checked
+        />
+        <input
+          type="radio"
+          name="slide"
+          id="signup"
+          [(ngModel)]="activeForm"
+          [value]="'signup'"
+        />
+
+        <label for="login" class="slide login">Login</label>
+        <label for="signup" class="slide signup">Sign up</label>
+        <div class="slider-tab"></div>
+      </div>
+      <div class="form-inner">
+        <form
+          *ngIf="activeForm === 'login'"
+          [formGroup]="loginForm"
+          (ngSubmit)="login()"
+          class="login"
+        >
+          <div class="field">
+            <label for="username"></label>
+            <input
+              type="text"
+              placeholder="Username"
+              id="username"
+              formControlName="username"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="password"></label>
+            <input
+              type="password"
+              placeholder="Password"
+              id="password"
+              formControlName="password"
+              required
+            />
+          </div>
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input type="submit" value="Login" [disabled]="loginForm.invalid" />
+          </div>
+
+          <div class="signup-link">
+            Not a member? <a (click)="setFormToSignup()">Sign up now</a>
+          </div>
+        </form>
+        <form
+          *ngIf="activeForm === 'signup'"
+          [formGroup]="signupForm"
+          (ngSubmit)="signUp()"
+          class="signup"
+        >
+          <div class="field">
+            <input
+              type="text"
+              placeholder="Username"
+              formControlName="username"
+              required
+            />
+            <div
+              *ngIf="
+                signupForm.get('username')?.invalid &&
+                signupForm.get('username')?.touched
+              "
+              class="error"
+            >
+              Username je obavezno polje.
+            </div>
+          </div>
+
+          <div class="field">
+            <input
+              type="email"
+              placeholder="Email Address"
+              formControlName="email"
+              required
+            />
+            <div
+              *ngIf="
+                signupForm.get('email')?.invalid &&
+                signupForm.get('email')?.touched
+              "
+              class="error"
+            >
+              Unesite validan email.
+            </div>
+          </div>
+          <div class="field">
+            <input
+              type="password"
+              placeholder="Password"
+              formControlName="password"
+              required
+            />
+            <div
+              *ngIf="
+                signupForm.get('password')?.invalid &&
+                signupForm.get('password')?.touched
+              "
+              class="error"
+            >
+              Lozinka mora imati bar 6 karaktera.
+            </div>
+          </div>
+          <div class="field">
+            <input
+              type="password"
+              placeholder="Confirm password"
+              formControlName="confirmPassword"
+              required
+            />
+            <div
+              *ngIf="
+                signupForm.get('confirmPassword')?.hasError('mismatch') &&
+                signupForm.get('confirmPassword')?.touched
+              "
+              class="error"
+            >
+              Lozinke se ne poklapaju.
+            </div>
+          </div>
+
+          <div class="field">
+            <select formControlName="role" required>
+              <option value="" disabled selected>Choose role</option>
+              <option value="klijent">Klijent</option>
+              <option value="serviser">Serviser</option>
+            </select>
+          </div>
+
+          <div *ngIf="signupForm.get('role')?.value === 'serviser'">
+            <div class="field">
+              <input
+                type="text"
+                placeholder="Name"
+                formControlName="name"
+                required
+              />
+            </div>
+            <div class="field">
+              <input
+                type="text"
+                placeholder="Surname"
+                formControlName="surname"
+                required
+              />
+            </div>
+            <div class="field">
+              <input
+                type="text"
+                placeholder="Specialty"
+                formControlName="specialty"
+                required
+              />
+            </div>
+            <div class="field">
+              <input
+                type="tel"
+                placeholder="Tel"
+                formControlName="tel"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- POLJA ZA KLIJENTA -->
+          <div *ngIf="signupForm.get('role')?.value === 'klijent'">
+            <div class="field">
+              <input
+                type="text"
+                placeholder="Name"
+                formControlName="naziv"
+                required
+              />
+            </div>
+            <div class="field">
+              <input
+                type="text"
+                placeholder="Contact person"
+                formControlName="contactPerson"
+                required
+              />
+            </div>
+            <div class="field">
+              <input
+                type="tel"
+                placeholder="Tel"
+                formControlName="tel"
+                required
+              />
+            </div>
+            <div class="field">
+              <input
+                type="text"
+                placeholder="Address"
+                formControlName="address"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field btn">
+            <div class="btn-layer"></div>
+            <input
+              type="submit"
+              value="Sign up"
+              [disabled]="signupForm.invalid"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,121 @@
+@use "../../../../variables" as *;
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 90%;
+  .carousel {
+    display: flex;
+    position: relative;
+    height: 70%;
+  }
+
+  .nav-button {
+    position: absolute;
+    top: 30%;
+    background-color: $white-primary;
+    color: #000;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 3;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+
+    .icon {
+      font-size: 1.2rem;
+    }
+  }
+
+  .nav-button.next {
+    right: 3.5rem;
+  }
+}
+
+.card {
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  background-color: #f0f0f0;
+  border-radius: 1rem;
+  padding: 2rem;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  color: $dark-blue;
+  top: 5%;
+  left: 12%;
+  text-align: center;
+  .title {
+    margin-top: 2.5rem;
+    height: 3rem;
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    .date {
+      color: $text-color-lighter;
+    }
+    .priority {
+      margin-right: 1rem;
+      color: $text-color-light;
+      .move {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .bottom {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 3rem;
+    color: $text-color-light;
+  }
+}
+[class^="next-"]:not(.next-1):not(.next-2):not(.next-3),
+[class*=" next-"]:not(.next-1):not(.next-2):not(.next-3) {
+  display: none;
+}
+
+.active {
+  transform: translateX(0) scale(1);
+  opacity: 1;
+  z-index: 4;
+  background-color: $white-primary;
+}
+
+.card.next-1 {
+  transform: translateX(17%) scale(0.95);
+  z-index: 3;
+  background-color: #c8c8c8;
+  .priority {
+    display: none;
+  }
+}
+
+.card.next-2 {
+  transform: translateX(34%) scale(0.8);
+  z-index: 2;
+  background-color: #afafaf;
+  .priority {
+    display: none;
+  }
+}
+
+.card.next-3 {
+  transform: translateX(45%) scale(0.7);
+  z-index: 1;
+  background-color: #646464;
+  .priority {
+    display: none;
+  }
+}

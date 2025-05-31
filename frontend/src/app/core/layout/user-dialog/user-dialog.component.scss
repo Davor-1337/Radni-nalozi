@@ -1,0 +1,98 @@
+@use "../../../../variables" as *;
+
+.container {
+  width: 45rem;
+
+  background-color: $background-color-light;
+
+  .user-display {
+    font-size: 5.5rem;
+    color: $dark-blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  .change-btn {
+    color: white;
+    background-color: $text-color-lighter;
+    border: none;
+    width: 40%;
+    height: 3rem;
+    font-size: 1.4rem;
+    border-radius: 0.6rem;
+  }
+
+  p {
+    font-size: 2.4rem;
+    color: $text-color-dark;
+    margin: 0.5rem 0;
+  }
+
+  .custom-field {
+    width: 100%;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+
+  .cancel {
+    background-color: transparent;
+    color: $text-color-dark;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    border: 1px solid $dark-blue;
+
+    &:hover {
+      background-color: rgba($text-color-dark, 0.1);
+      transform: scale(1.05);
+    }
+  }
+
+  .confirm {
+    background-color: $dark-blue;
+    color: white;
+    font-size: 1.6rem;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    border: none;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:disabled {
+      background-color: $text-color-light;
+    }
+  }
+}
+
+.close-button {
+  font-size: 3rem;
+  border: none;
+  color: $text-color-light;
+  display: flex;
+  margin-left: 40rem;
+  margin-top: 2rem;
+
+  &:hover {
+    cursor: pointer;
+    scale: (1.1);
+  }
+}
+.close-button:focus {
+  outline: none;
+  box-shadow: none;
+}

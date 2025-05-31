@@ -1,0 +1,87 @@
+<div class="home-layout">
+  <div class="top-container">
+    <div class="upper">
+      <div class="last-tasks">
+        <span class="last">Last Tasks</span> <br />
+        <span class="total">{{ totalCount }} </span
+        ><span class="label"> total work orders</span>
+      </div>
+      <div class="numbers">
+        <div class="done">
+          <span class="num">{{ completedOrders }}</span> <br />
+          <span class="label">Done</span>
+        </div>
+        <div class="progress">
+          <span class="num">{{ inProgressOrders }}</span> <br />
+          <span class="label">In progress</span>
+        </div>
+      </div>
+    </div>
+    <div class="recent-tasks">
+      <table mat-table [dataSource]="recentWorkOrders" class="mat-elevation-z8">
+        <ng-container matColumnDef="icon">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <i class="icon fa-regular fa-square"></i>
+          </td>
+        </ng-container>
+        <!-- ID Kolona -->
+        <ng-container matColumnDef="WorkOrder">
+          <th mat-header-cell *matHeaderCellDef>WorkOrder</th>
+          <td mat-cell *matCellDef="let element">{{ element.BrojNaloga }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Title</th>
+          <td mat-cell *matCellDef="let element">{{ element.OpisProblema }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="priority">
+          <th mat-header-cell *matHeaderCellDef>Priority</th>
+          <td mat-cell *matCellDef="let element">{{ element.Prioritet }}</td>
+        </ng-container>
+
+        <!-- Naziv Kolona -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">{{ element.Status }}</td>
+        </ng-container>
+
+        <!-- Status Kolona -->
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let element">
+            <span class="date">{{
+              element.DatumOtvaranja | date : "dd MMM, yyyy"
+            }}</span>
+          </td>
+        </ng-container>
+
+        <!-- Datum Kolona -->
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef>Location</th>
+          <td mat-cell *matCellDef="let element">{{ element.Lokacija }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="client">
+          <th mat-header-cell *matHeaderCellDef>Client</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.NazivKlijenta }}
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </div>
+  <div class="bottom-container">
+    <div class="left-container">
+      <app-work-orders-chart></app-work-orders-chart>
+    </div>
+    <div class="right-container">
+      <span>Projects in progress: </span>
+      <app-carousel></app-carousel>
+    </div>
+  </div>
+</div>

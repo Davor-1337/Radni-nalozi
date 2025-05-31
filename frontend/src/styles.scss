@@ -1,0 +1,85 @@
+@use "variables" as *;
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.mat-mdc-snack-bar-container {
+  &.success-snackbar {
+    --mdc-snackbar-container-color: #4caf50;
+    --mat-mdc-snack-bar-button-color: #fff;
+
+    .mdc-snackbar__surface {
+      min-width: 300px !important;
+    }
+    .mdc-snackbar__label {
+      padding: 16px !important;
+      font-size: 18px !important;
+      line-height: 1.5 !important;
+    }
+  }
+
+  &.error-snackbar {
+    --mdc-snackbar-container-color: #f44336;
+    --mat-mdc-snack-bar-button-color: #fff;
+
+    /* Isti stilovi za greške */
+    .mdc-snackbar__surface {
+      min-width: 300px !important;
+    }
+    .mdc-snackbar__label {
+      padding: 16px !important;
+      font-size: 18px !important;
+      line-height: 1.5 !important;
+    }
+  }
+  &.delete-snackbar {
+    .mdc-snackbar__label {
+      font-size: 1.4rem;
+      color: #fff;
+      background-color: #323232;
+    }
+  }
+}
+
+.mat-mdc-snack-bar-action {
+  .mdc-button__label {
+    font-size: 1.6rem !important;
+    font-weight: 400 !important;
+    color: #fff;
+  }
+}
+
+.archive-dialog {
+  max-width: none !important;
+  width: 60% !important;
+  height: 70% !important;
+  padding: 0 !important;
+}
+
+.pdf-dialog .mat-dialog-container {
+  padding: 0;
+  overflow: hidden;
+}
+
+.pdf-toolbar {
+  padding: 8px;
+  background: #f5f5f5;
+  display: flex;
+  gap: 8px;
+}
