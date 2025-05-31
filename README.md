@@ -80,7 +80,7 @@ Prije instalacije, osigurajte da imate instalirano:
 2. Instalirajte zavisnosti:
      go mod tidy
    
-3. Konfigurirajte bazu podataka (pogledajte Konfiguracija sekciju)
+3. Konfigurisite bazu podataka (pogledajte Konfiguracija sekciju)
    
 4. Pokrenite backend
   go run main.go
