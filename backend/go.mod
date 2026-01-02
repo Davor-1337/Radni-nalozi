@@ -3,31 +3,36 @@ module Diplomski
 go 1.22.5
 
 require (
+	github.com/denisenkom/go-mssqldb v0.12.3
+	github.com/gin-contrib/cors v1.7.3
+	github.com/gin-gonic/gin v1.10.0
+	github.com/go-co-op/gocron v1.37.0
+	github.com/golang-jwt/jwt/v5 v5.2.1
+	github.com/johnfercher/maroto/v2 v2.1.3
+	github.com/joho/godotenv v1.5.1
+	golang.org/x/crypto v0.31.0
+	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df
+)
+
+require (
 	github.com/boombuler/barcode v1.0.1 // indirect
 	github.com/bytedance/sonic v1.12.6 // indirect
 	github.com/bytedance/sonic/loader v0.2.1 // indirect
 	github.com/cloudwego/base64x v0.1.4 // indirect
 	github.com/cloudwego/iasm v0.2.0 // indirect
-	github.com/denisenkom/go-mssqldb v0.12.3 // indirect
 	github.com/f-amaral/go-async v0.3.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.7 // indirect
-	github.com/gin-contrib/cors v1.7.3 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
-	github.com/gin-gonic/gin v1.10.0 // indirect
-	github.com/go-co-op/gocron v1.37.0 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-playground/validator/v10 v10.23.0 // indirect
 	github.com/goccy/go-json v0.10.4 // indirect
-	github.com/golang-jwt/jwt/v5 v5.2.1 // indirect
 	github.com/golang-sql/civil v0.0.0-20220223132316-b832511892a9 // indirect
 	github.com/golang-sql/sqlexp v0.1.0 // indirect
 	github.com/google/uuid v1.5.0 // indirect
 	github.com/hhrutter/lzw v1.0.0 // indirect
 	github.com/hhrutter/tiff v1.0.1 // indirect
 	github.com/johnfercher/go-tree v1.0.5 // indirect
-	github.com/johnfercher/maroto/v2 v2.1.3 // indirect
-	github.com/joho/godotenv v1.5.1 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/jung-kurt/gofpdf v1.16.2 // indirect
 	github.com/klauspost/cpuid/v2 v2.2.9 // indirect
@@ -45,14 +50,12 @@ require (
 	github.com/ugorji/go/codec v1.2.12 // indirect
 	go.uber.org/atomic v1.9.0 // indirect
 	golang.org/x/arch v0.12.0 // indirect
-	golang.org/x/crypto v0.31.0 // indirect
 	golang.org/x/image v0.18.0 // indirect
 	golang.org/x/net v0.33.0 // indirect
 	golang.org/x/sys v0.28.0 // indirect
 	golang.org/x/text v0.21.0 // indirect
 	google.golang.org/protobuf v1.36.1 // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
-	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

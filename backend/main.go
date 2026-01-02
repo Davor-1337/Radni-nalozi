@@ -12,11 +12,11 @@ import (
 
 
 func main() {
-	err := database.ConnectDB() //database connection
-    if err != nil {
-			fmt.Println("Could not connect to the database.")
-			return
-		}
+	err := database.ConnectDB()
+if err != nil {
+    fmt.Println("Database connection error:", err)
+    return
+}
 	server := gin.Default() 
 
 	server.Use(utils.SetupCORS()) // CORS middleware
