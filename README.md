@@ -128,8 +128,8 @@ Aplikacija bi trebala uspješno uspostaviti vezu sa bazom
 Provjerite da se tabele i podaci učitavaju korektno
 
 Admin nalog:
-username: MarkovicD
-password: MarkovicD01 
+username: davor
+password: davor 
 
 Serviser nalog: 
 username: Petar00
