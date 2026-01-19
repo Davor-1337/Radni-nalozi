@@ -1,144 +1,217 @@
-# Sistem za upravljanje radnim nalozima
+🛠️ Work Order Management System
 
-## Funkcionalnosti aplikacije
+A full-stack web application designed to manage work orders, users, materials, and financial documentation in an efficient and centralized way.
+The system supports administrators, technicians, and clients, each with clearly defined roles and responsibilities.
 
-###  Administratorske funkcije
-- **Upravljanje radnim nalozima**
-  - Kreiranje, pregled i ažuriranje radnih naloga
-  - Dodjela naloga serviserima
-  - Praćenje statusa naloga
-  - Arhiviranje radnih naloga
-- **Upravljanje korisnicima**
-  - Odobravanje/odbijanje zahtjeva za registraciju (klijenti i serviseri)
-  - Upravljanje korisničkim rolama i privilegijama
-- **Upravljanje materijalima**
-  - Evidencija potrošnje materijala
-  - Praćenje zaliha
-- **Financijski modul**
-  - Generisanje faktura
-  - Generisanje PDF izvjestaja
-- **Sistem obavještenja**
-  - Real-time notifikacije za zahtjeve za naloge
-  - Obavještenja o zahtjevima za registraciju
+✨ Key Features
+👨‍💼 Administrator Panel
+Work Order Management
 
-### Klijentske funkcije
-- **Radni nalozi**
-  - Slanje zahtjeva za nove radne naloge
-  - Pregled svih vlastitih naloga
-  - Praćenje statusa (otvoren/prihvaćen/završen)
-- **Dokumentacija**
-  - Pregled generisanih faktura
-  - Preuzimanje PDF izvještaja
-- **Notifikacije**
-  - Obavještenja o promjenama statusa naloga
-  
+Create, view, update, and archive work orders
 
-###  Serviserske funkcije
-- **Radni proces**
-  - Pregled dodijeljenih radnih naloga
-  - Unos vremena utrošenog na rad
-  - Evidencija korištenih materijala
-  - Završetak radnih naloga
-  - Unos i pracenje materijala
-- **Komunikacija**
-  - Obavještenja o novim zadacima
-  - Notifikacije o hitnim nalozima
+Assign work orders to technicians
+
+Monitor work order lifecycle and status
+
+User Management
+
+Approve or reject registration requests (clients and technicians)
+
+Manage user roles and access privileges
+
+Material & Inventory Management
+
+Track material usage per work order
+
+Monitor stock availability in real time
+
+Financial Module
+
+Generate invoices
+
+Export detailed PDF reports
+
+Notification System
+
+Real-time notifications for new work order requests
+
+Alerts for pending user registration approvals
+
+👤 Client Portal
+Work Orders
+
+Submit new work order requests
+
+View all personal work orders
+
+Track status (Open / Accepted / Completed)
+
+Documentation
+
+View issued invoices
+
+Download PDF reports
+
+Notifications
+
+Receive updates about work order status changes
+
+🧑‍🔧 Technician Dashboard
+Work Process
+
+View assigned work orders
+
+Log time spent on tasks
+
+Record used materials
+
+Complete work orders
+
+Manage and track materials
+
+Communication
+
+Notifications about new assignments
+
+Alerts for urgent work orders
+
+🧱 Technology Stack
+Backend
+
+Go (1.x+)
+
+REST API
+
+Microsoft SQL Server
+
+Frontend
+
+Angular CLI 19.1.8
+
+TypeScript
+
+HTML5 / SCSS
+
+Database
+
+Microsoft SQL Server
+
+⚙️ Prerequisites
+
+Before running the application, make sure the following tools are installed:
+
+Go
+ (version 1.x or newer)
+
+Node.js
+
+Angular CLI
+
+Microsoft SQL Server
+
+🚀 Installation & Setup
+Backend (Go)
+
+Clone the repository:
+
+git clone https://github.com/Davor-1337/Radni-nalozi
+cd radni-nalozi/backend
 
 
-## Tehnologije
+Install dependencies:
 
-**Backend:**
-- Go (1.x+)
-- SQL Server
+go mod tidy
 
 
-**Frontend:**
-- Angular CLI: 19.1.8
-- TypeScript
-- HTML/SCSS
+Configure the database (see Database Configuration below)
 
-**Baza podataka:**
-- Microsoft SQL Server
+Run the backend server:
 
-## Preduvjeti
+go run main.go
 
-Prije instalacije, osigurajte da imate instalirano:
-- [Go](https://golang.org/dl/) (verzija 1.x ili novija)
-- [Node.js](https://nodejs.org/) (za Angular)
-- [Angular CLI](https://angular.io/cli)
-- [Microsoft SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+Frontend (Angular)
 
-## Instalacija i pokretanje
+Navigate to the frontend directory:
 
-### Backend (Go)
-
-1. Klonirajte repozitorij:
-   ```bash
-   git clone https://github.com/Davor-1337/Radni-nalozi
-   cd radni-nalozi/backend
-
-2. Instalirajte zavisnosti:
-     go mod tidy
-   
-3. Konfigurisite bazu podataka (pogledajte Konfiguracija sekciju)
-   
-4. Pokrenite backend
-  go run main.go
+cd radni-nalozi/frontend
 
 
-### Frontend (Angular)
-1. Otvorite novi terminal i idite u frontend direktorij:
-   
-    cd radni-nalozi/frontend
+Install dependencies:
 
-2. Instalirajte zavisnosti:
-    
-    npm install
+npm install
 
-3. Pokrenite Angular aplikaciju:
-   
-    ng serve
 
-4. Aplikacija će biti dostupna na: http://localhost:4200
+Start the Angular application:
 
-##  Baza podataka - Postavljanje i konfiguracija
+ng serve
 
-# 1. Priprema baze podataka
-**Opcija A: Korištenje SQL Server Management Studija**
-1. Pokrenite SQL Server Management Studio (SSMS)
-2. Otvorite novi query prozor
-3. Izvršite skriptu `backend/database/baza.sql`
-4. Provjerite da je baza `RadniNaloziDB` kreirana
 
- #  2. Konfiguracija aplikacije
-U backend direktoriju kreirajte .env fajl sa sledećim sadržajem:
+Open the application in your browser:
+👉 http://localhost:4200
 
-"DB_CONNECTION=sqlserver://<username>:<password>@localhost:1433?database=RadniNaloziDB"
-Zamijenite placeholdere:
+🗄️ Database Setup & Configuration
+1. Database Initialization
+Option A: Using SQL Server Management Studio (SSMS)
 
-<username> sa vašim SQL Server korisničkim imenom
+Open SQL Server Management Studio
 
-<password> sa odgovarajućom lozinkom
+Create a new query window
 
-3. Verifikacija
-Pokrenite backend aplikaciju
+Execute the script:
 
-Aplikacija bi trebala uspješno uspostaviti vezu sa bazom
+backend/database/baza.sql
 
-Provjerite da se tabele i podaci učitavaju korektno
 
-Admin nalog:
-username: davor
-password: davor 
+Confirm that the database RadniNaloziDB has been successfully created
 
-Serviser nalog: 
-username: Petar00
-password: Petar00
+2. Environment Configuration
 
-Klijent nalog:
-username: SwiftP
-password: SwiftP 
+Create a .env file in the backend directory with the following content:
 
+DB_CONNECTION=sqlserver://<username>:<password>@localhost:1433?database=RadniNaloziDB
+
+
+Replace:
+
+<username> with your SQL Server username
+
+<password> with your SQL Server password
+
+3. Verification
+
+Start the backend service
+
+Ensure the application successfully connects to the database
+
+Verify that all tables and initial data are loaded correctly
+
+🔐 Test Accounts
+
+For testing purposes, the following accounts are available:
+
+Administrator
+
+Username: davor
+
+Password: davor
+
+Technician
+
+Username: Petar00
+
+Password: Petar00
+
+Client
+
+Username: SwiftP
+
+Password: SwiftP
+
+📌 Notes
+
+This project was developed as part of an academic thesis and demonstrates a real-world business workflow
+
+Emphasis is placed on role-based access, clean architecture, and scalable backend design using Go
 
 
 
